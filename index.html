@@ -23,7 +23,10 @@
     />
 
     <!-- Metadata para compartir en redes sociales -->
-    <meta property="og:title" content="Día Internacional de la Diversidad Biológica – 22 de mayo" />
+    <meta
+      property="og:title"
+      content="Día Internacional de la Diversidad Biológica – 22 de mayo"
+    />
     <meta
       property="og:description"
       content="Realizado por estudiantes del Profesorado de Educación Primaria del ENOVA en la materia Ciencias Naturales. Un recorrido interactivo por la biodiversidad en el Día Internacional de la Diversidad Biológica."
@@ -678,6 +681,7 @@
         text-align: center;
         color: #888;
         font-size: 1rem;
+        position: relative;
       "
     >
       <div>
@@ -688,20 +692,35 @@
         Compartir este sitio
       </button>
     </footer>
-
+    <!-- Toast -->
+    <div style="position: fixed; top: 1em; padding: 1rem">
+      <div
+        id="toast"
+        style="
+          background: var(--primary);
+          color: #fff;
+          padding: 0.75em 1.5em;
+          border-radius: 8px;
+          font-size: 0.9rem;
+          opacity: 0;
+          pointer-events: none;
+          font-weight: 500;
+        "
+      >
+        🔔 Enlace copiado al portapapeles
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
 
     <script>
-      // Set current date in footer
       document.getElementById("footer-date").textContent =
         new Date().toLocaleDateString("es-AR", {
           year: "numeric",
         });
 
-      // Share button logic
-      // Esperamos que el DOM esté completamente cargado
       document.addEventListener("DOMContentLoaded", function () {
         const shareBtn = document.getElementById("share-btn");
+        const toast = document.getElementById("toast");
 
         shareBtn.addEventListener("click", async function () {
           const shareData = {
@@ -710,29 +729,44 @@
             url: window.location.href,
           };
 
-          // Intenta usar la API de compartir si está disponible
           if (
             navigator.share &&
             /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
           ) {
             try {
               await navigator.share(shareData);
-            } catch (e) {
-              // Si la persona cancela el panel de compartir, no hacemos nada
-            }
+            } catch (e) {}
           } else {
-            // Si estamos en desktop o no hay API de compartir, copiamos al portapapeles
             try {
               await navigator.clipboard.writeText(window.location.href);
-              shareBtn.textContent = "¡Enlace copiado!";
-              setTimeout(() => {
-                shareBtn.textContent = "Compartir este sitio";
-              }, 2000);
+              showToast();
             } catch (e) {
-              alert("No se pudo copiar el enlace. ¿Tu navegador lo permite?");
+              alert("No se pudo copiar el enlace.");
             }
           }
         });
+
+        function showToast() {
+          shareBtn.disabled = true;
+          Motion.animate(
+            toast,
+            { opacity: [0, 1], y: [-10, 0] },
+            { duration: 0.3 }
+          );
+
+          setTimeout(() => {
+            Motion.animate(
+              toast,
+              { opacity: [1, 0], y: [0, -10] },
+              {
+                duration: 0.3,
+                onComplete: () => {
+                  shareBtn.disabled = false;
+                },
+              }
+            );
+          }, 3000);
+        }
       });
     </script>
 
