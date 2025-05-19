@@ -23,6 +23,14 @@
         flex-direction: column;
         align-items: center;
         padding: 1em;
+        opacity: 0;
+      }
+      div,
+      section,
+      article,
+      ul {
+        box-sizing: border-box;
+        width: 100%;
       }
       h1 {
         font-size: 2rem;
@@ -30,6 +38,7 @@
         letter-spacing: -1px;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 0.5em;
       }
       .species-list {
@@ -39,6 +48,7 @@
         padding: 1rem;
         max-width: 500px;
         margin: 0 auto;
+        width: 100% !;
       }
       .species-card {
         background: #fff;
@@ -120,19 +130,24 @@
           <div class="species-info">
             <div class="species-title">1. Selva Misionera</div>
             <p class="species-desc">
-              Bosque húmedo con gran variedad de plantas y animales. Vive el yaguareté.
+              Bosque húmedo con gran variedad de plantas y animales. Vive el
+              yaguareté.
             </p>
           </div>
         </article>
 
         <article class="species-card">
-          <div class="species-img" aria-label="Foto sugerida: laguna con vegetación">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: laguna con vegetación"
+          >
             💧
           </div>
           <div class="species-info">
             <div class="species-title">2. Humedales del Litoral</div>
             <p class="species-desc">
-              Ecosistemas con agua y vegetación. Hogar del carpincho y muchas aves.
+              Ecosistemas con agua y vegetación. Hogar del carpincho y muchas
+              aves.
             </p>
           </div>
         </article>
@@ -144,7 +159,8 @@
           <div class="species-info">
             <div class="species-title">3. Pastizales Pampeanos</div>
             <p class="species-desc">
-              Campos abiertos donde corren los ñandúes y crecen muchas flores nativas.
+              Campos abiertos donde corren los ñandúes y crecen muchas flores
+              nativas.
             </p>
           </div>
         </article>
@@ -162,13 +178,12 @@
         </article>
 
         <article class="species-card">
-          <div class="species-img" aria-label="Foto sugerida: palmares">
-            🌴
-          </div>
+          <div class="species-img" aria-label="Foto sugerida: palmares">🌴</div>
           <div class="species-info">
             <div class="species-title">5. Parque Nacional El Palmar</div>
             <p class="species-desc">
-              Palmares únicos en Entre Ríos. Protege zorros, aves y vegetación autóctona.
+              Palmares únicos en Entre Ríos. Protege zorros, aves y vegetación
+              autóctona.
             </p>
           </div>
         </article>
@@ -180,7 +195,8 @@
           <div class="species-info">
             <div class="species-title">6. Delta del Paraná</div>
             <p class="species-desc">
-              Ríos e islas entrelazados. Lugar clave para peces y aves acuáticas.
+              Ríos e islas entrelazados. Lugar clave para peces y aves
+              acuáticas.
             </p>
           </div>
         </article>
@@ -192,7 +208,8 @@
           <div class="species-info">
             <div class="species-title">7. Reserva Natural Las Piedras</div>
             <p class="species-desc">
-              Área protegida de Gualeguaychú. Monte, arroyos y mucha biodiversidad.
+              Área protegida de Gualeguaychú. Monte, arroyos y mucha
+              biodiversidad.
             </p>
           </div>
         </article>
@@ -210,11 +227,12 @@
         </article>
       </section>
 
-      <div style="text-align: center; margin-top: 1rem; margin-bottom: 2rem;">
+      <div style="text-align: center; margin-top: 1rem; margin-bottom: 2rem">
         <a href="index.html">
           <button type="button">Volver</button>
         </a>
       </div>
     </main>
+    <script src="js/fadein.js"></script>
   </body>
 </html>

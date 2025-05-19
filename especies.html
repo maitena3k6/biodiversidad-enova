@@ -24,12 +24,14 @@
         flex-direction: column;
         align-items: center;
         padding: 1em;
+        opacity: 0;
       }
       h1 {
         font-size: 2rem;
         margin-bottom: 0.5em;
         letter-spacing: -1px;
         display: flex;
+        justify-content: center;
         align-items: center;
         gap: 0.5em;
       }
@@ -44,7 +46,7 @@
       p {
         font-size: 1.2rem;
         line-height: 1.5;
-        max-width: 600px;
+        max-width: 800px;
         margin: 0 auto;
       }
       /* Ajustes mínimos para mobile cards si no existen en styles.css */
@@ -53,7 +55,7 @@
         flex-direction: column;
         gap: 1.5rem;
         padding: 1rem;
-        max-width: 500px;
+        max-width: 800px;
         margin: 0 auto;
       }
       .species-card {
@@ -262,11 +264,12 @@
         </article>
       </section>
 
-      <div style="text-align: center; margin-top: 1rem; margin-bottom: 2rem;">
+      <div style="text-align: center; margin-top: 1rem; margin-bottom: 2rem">
         <a href="index.html">
           <button type="button">Volver</button>
         </a>
       </div>
     </main>
+    <script src="js/fadein.js"></script>
   </body>
 </html>

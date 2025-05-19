@@ -23,6 +23,14 @@
         flex-direction: column;
         align-items: center;
         padding: 1em;
+        opacity: 0;
+      }
+      div,
+      section,
+      article,
+      ul {
+        box-sizing: border-box;
+        width: 100%;
       }
       h1 {
         font-size: 2rem;
@@ -43,7 +51,7 @@
       p {
         font-size: 1.2rem;
         line-height: 1.5;
-        max-width: 600px;
+        max-width: 800px;
         text-align: center;
         margin: 0 auto;
       }
@@ -70,6 +78,7 @@
         min-width: 300px;
         text-align: center;
         transition: box-shadow 0.2s;
+        max-width: 800px;
       }
       .card:hover {
         box-shadow: 0 4px 32px rgba(34, 34, 59, 0.13);
@@ -103,7 +112,7 @@
         list-style: none;
         padding: 0;
         margin: 2em auto 1em auto;
-        max-width: calc(100vw - 2em);
+        max-width: 800px;
         font-size: 1.15rem;
         text-align: left;
         background: var(--card);
@@ -138,7 +147,7 @@
         padding: 1.5em;
         margin: 2em 0 1em 0;
         min-width: 300px;
-        max-width: 600px;
+        max-width: 800px;
       }
       .celebracion-section h2 {
         margin-top: 0;
@@ -160,7 +169,7 @@
         padding: 1em;
         font-size: 1.2rem;
         color: var(--primary);
-        max-width: 400px;
+        max-width: 800px;
         background: #f6f8fa;
         border-radius: 8px;
         box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
@@ -179,7 +188,7 @@
         padding: 1.5em;
         margin: 2em 0 1em 0;
         min-width: 300px;
-        max-width: 600px;
+        max-width: 800px;
       }
       .argentina-section h2 {
         margin-top: 0;
@@ -201,7 +210,7 @@
         padding: 1em;
         font-size: 1.15rem;
         color: var(--primary);
-        max-width: 400px;
+        max-width: 800px;
         background: #f6f8fa;
         border-radius: 8px;
         box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
@@ -223,7 +232,7 @@
         padding: 1.5em;
         margin: 2em 0 1em 0;
         min-width: 300px;
-        max-width: 600px;
+        max-width: 800px;
       }
       .entrerios-section h2 {
         margin-top: 0;
@@ -245,7 +254,7 @@
         padding: 1em;
         font-size: 1.15rem;
         color: var(--primary);
-        max-width: 400px;
+        max-width: 800px;
         background: #f6f8fa;
         border-radius: 8px;
         box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
@@ -267,7 +276,7 @@
         padding: 1.5em;
         margin: 2em 0 1em 0;
         min-width: 300px;
-        max-width: 600px;
+        max-width: 800px;
         text-align: center;
       }
       .sabiasque-section h2 {
@@ -283,7 +292,7 @@
         list-style: none;
         padding: 0;
         margin: 1.5em auto 0 auto;
-        max-width: 500px;
+        max-width: 800px;
         font-size: 1.15rem;
         text-align: left;
       }
@@ -323,7 +332,7 @@
         padding: 1.5em;
         margin: 2em 0 1em 0;
         min-width: 300px;
-        max-width: 600px;
+        max-width: 800px;
         text-align: center;
       }
       .acciones-section h2 {
@@ -342,7 +351,7 @@
         padding: 1em;
         font-size: 1.15rem;
         color: var(--primary);
-        max-width: 400px;
+        max-width: 800px;
         background: #f6f8fa;
         border-radius: 8px;
         box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
@@ -388,11 +397,13 @@
     </div>
 
     <h2><span class="emoji">🐾</span>¿Qué es la biodiversidad?</h2>
-    <p>
-      La biodiversidad es toda la variedad de seres vivos que habitan nuestro
-      planeta: animales, plantas, hongos, bacterias… ¡y también los ecosistemas
-      donde viven!
-    </p>
+    <div>
+      <p>
+        La biodiversidad es toda la variedad de seres vivos que habitan nuestro
+        planeta: animales, plantas, hongos, bacterias… ¡y también los
+        ecosistemas donde viven!
+      </p>
+    </div>
 
     <ul class="biodiversidad-list">
       <li>
@@ -671,49 +682,6 @@
       });
     </script>
 
-    <script>
-      document.querySelectorAll(".sabiasque-icon").forEach(function (icon) {
-        icon.textContent = icon.dataset.emoji;
-        icon.parentElement.addEventListener("mouseenter", function () {
-          icon.animate(
-            [
-              { transform: "scale(1) rotate(0deg)" },
-              { transform: "scale(1.25) rotate(-10deg)" },
-              { transform: "scale(1) rotate(0deg)" },
-            ],
-            { duration: 500, easing: "cubic-bezier(.68,-0.55,.27,1.55)" }
-          );
-        });
-        icon.parentElement.addEventListener("focus", function () {
-          icon.animate(
-            [
-              { transform: "scale(1) rotate(0deg)" },
-              { transform: "scale(1.25) rotate(-10deg)" },
-              { transform: "scale(1) rotate(0deg)" },
-            ],
-            { duration: 500, easing: "cubic-bezier(.68,-0.55,.27,1.55)" }
-          );
-        });
-      });
-    </script>
-    <script>
-      const { animate, scroll } = Motion;
-
-      animate(
-        "body",
-        {
-          opacity: [0, 1],
-        },
-        { ease: "linear", duration: 1, delay: 0.5 }
-      );
-
-      //   const animation = animate(
-      //     card,
-      //     { transform: ["none", "scale(1.1)"] },
-      //     { ease: "linear" }
-      //   );
-
-      //   scroll(animation);
-    </script>
+    <script src="js/fadein.js"></script>
   </body>
 </html>
