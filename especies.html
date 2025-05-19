@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Especies | Biodiversidad Enova</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- reutiliza los estilos de index.html -->
+    <style>
+      :root {
+        --bg: #f6f8fa;
+        --primary: #22223b;
+        --accent: #4ea8de;
+        --card: #fff;
+        --radius: 16px;
+      }
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        font-family: "Inter", Arial, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5em;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5em;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        gap: 0.25em;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      /* Ajustes mínimos para mobile cards si no existen en styles.css */
+      .species-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .species-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+        overflow: hidden;
+        padding: 1rem;
+      }
+      .species-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        background: #f0f0f0;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+      }
+      .species-info {
+        flex: 1;
+      }
+      .species-title {
+        margin: 0 0 0.3em 0;
+        font-size: 1.1em;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      .species-desc {
+        margin: 0;
+        color: #444;
+        font-size: 0.98em;
+      }
+      button {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.75em 1.5em;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1em;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #277da1;
+      }
+      @media (max-width: 600px) {
+        .species-card {
+          flex-direction: column;
+          align-items: stretch;
+          padding: 0.8rem;
+        }
+        .species-img {
+          width: 100%;
+          height: 140px;
+          margin-bottom: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 style="text-align: center; margin-top: 1.5rem">
+        🌿 Especies que habitan nuestra tierra
+      </h1>
+      <section class="species-list">
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: yaguareté en la selva"
+          >
+            🐆
+          </div>
+          <div class="species-info">
+            <div class="species-title">1. Yaguareté</div>
+            <p class="species-desc">
+              El gran felino argentino. Vive en la selva misionera y está en
+              peligro de extinción.
+            </p>
+          </div>
+        </article>
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: carpincho al borde de una laguna"
+          >
+            🐗
+          </div>
+          <div class="species-info">
+            <div class="species-title">2. Carpincho</div>
+            <p class="species-desc">
+              El roedor más grande del mundo. Se lo puede ver en los humedales
+              de Entre Ríos.
+            </p>
+          </div>
+        </article>
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: martín pescador posado sobre una rama"
+          >
+            🦜
+          </div>
+          <div class="species-info">
+            <div class="species-title">3. Martín pescador</div>
+            <p class="species-desc">
+              Un ave colorida que pesca en ríos y arroyos. Muy común en
+              Gualeguaychú.
+            </p>
+          </div>
+        </article>
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: tararira en el agua o saliendo a la superficie"
+          >
+            🐟
+          </div>
+          <div class="species-info">
+            <div class="species-title">4. Tararira</div>
+            <p class="species-desc">
+              Pez cazador de agua dulce. Vive en arroyos y lagunas entrerrianas.
+            </p>
+          </div>
+        </article>
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: árbol a orillas del río"
+          >
+            🌳
+          </div>
+          <div class="species-info">
+            <div class="species-title">5. Sauce criollo</div>
+            <p class="species-desc">
+              Árbol nativo que crece cerca del agua. Sus ramas se curvan hacia
+              abajo.
+            </p>
+          </div>
+        </article>
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: ñandú en campo abierto"
+          >
+            🕊
+          </div>
+          <div class="species-info">
+            <div class="species-title">6. Ñandú</div>
+            <p class="species-desc">
+              Parece un avestruz. Corre muy rápido por los pastizales del país.
+            </p>
+          </div>
+        </article>
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: guacamayo en rama tropical"
+          >
+            🐦
+          </div>
+          <div class="species-info">
+            <div class="species-title">7. Guacamayo rojo</div>
+            <p class="species-desc">
+              Un ave con plumas rojas, azules y verdes. Vive en la selva y vuela
+              en pareja.
+            </p>
+          </div>
+        </article>
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: cóndor con alas abiertas sobre la montaña"
+          >
+            🦅
+          </div>
+          <div class="species-info">
+            <div class="species-title">8. Cóndor andino</div>
+            <p class="species-desc">
+              El ave voladora más grande de América. Planea sobre los Andes.
+            </p>
+          </div>
+        </article>
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: primer plano de flores de ceibo"
+          >
+            🌸
+          </div>
+          <div class="species-info">
+            <div class="species-title">9. Ceibo</div>
+            <p class="species-desc">
+              Nuestra flor nacional. De color rojo intenso.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <div style="text-align: center; margin-top: 1rem; margin-bottom: 2rem;">
+        <a href="index.html">
+          <button type="button">Volver</button>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>

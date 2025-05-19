@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Especies | Biodiversidad Enova</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- reutiliza los estilos de index.html -->
+    <style>
+      :root {
+        --bg: #f6f8fa;
+        --primary: #22223b;
+        --accent: #4ea8de;
+        --card: #fff;
+        --radius: 16px;
+      }
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        font-family: "Inter", Arial, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5em;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5em;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        gap: 0.25em;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      /* Ajustes mínimos para mobile cards si no existen en styles.css */
+      .species-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .species-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+        overflow: hidden;
+        padding: 1rem;
+      }
+      .species-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        background: #f0f0f0;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+      }
+      .species-info {
+        flex: 1;
+      }
+      .species-title {
+        margin: 0 0 0.3em 0;
+        font-size: 1.1em;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      .species-desc {
+        margin: 0;
+        color: #444;
+        font-size: 0.98em;
+      }
+      button {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.75em 1.5em;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1em;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #277da1;
+      }
+      @media (max-width: 600px) {
+        .species-card {
+          flex-direction: column;
+          align-items: stretch;
+          padding: 0.8rem;
+        }
+        .species-img {
+          width: 100%;
+          height: 140px;
+          margin-bottom: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 style="text-align: center; margin-top: 1.5rem">
+        🔗 Conexiones invisibles en la naturaleza
+      </h1>
+      <section class="species-list">
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: abeja posada en flor"
+          >
+            🐝
+          </div>
+          <div class="species-info">
+            <div class="species-title">1. Polinización</div>
+            <p class="species-desc">
+              Las abejas, mariposas y colibríes transportan polen de flor en
+              flor. Así, permiten que muchas plantas se reproduzcan.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: zorro comiendo un fruto"
+          >
+            🦊
+          </div>
+          <div class="species-info">
+            <div class="species-title">2. Dispersión de semillas</div>
+            <p class="species-desc">
+              Algunos animales comen frutos y luego liberan las semillas lejos
+              de la planta madre. ¡Así el bosque se expande!
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: búho cazando de noche"
+          >
+            🦉
+          </div>
+          <div class="species-info">
+            <div class="species-title">3. Depredación</div>
+            <p class="species-desc">
+              Un búho que caza ratones controla su población. Esto mantiene el
+              equilibrio del ecosistema.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: hongos creciendo sobre tronco caído"
+          >
+            🍄
+          </div>
+          <div class="species-info">
+            <div class="species-title">4. Descomposición</div>
+            <p class="species-desc">
+              Hongos y bacterias descomponen lo que muere. Así devuelven
+              nutrientes al suelo.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: vaca y garza en campo"
+          >
+            🐄
+          </div>
+          <div class="species-info">
+            <div class="species-title">5. Comensalismo</div>
+            <p class="species-desc">
+              Algunas aves siguen al ganado para comer insectos que se levantan
+              al caminar. Una gana, la otra no se afecta.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: flor y mariposa juntos"
+          >
+            🌺
+          </div>
+          <div class="species-info">
+            <div class="species-title">6. Mutualismo</div>
+            <p class="species-desc">
+              Mariposa y flor se benefician: una se alimenta, la otra se
+              reproduce. ¡Una alianza perfecta!
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: árbol con orquídea epífita"
+          >
+            🌴
+          </div>
+          <div class="species-info">
+            <div class="species-title">7. Epifitismo</div>
+            <p class="species-desc">
+              Las orquídeas viven sobre ramas de árboles sin dañarlos. Buscan
+              altura para recibir más sol.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: rana con hongo en la piel"
+          >
+            🐸
+          </div>
+          <div class="species-info">
+            <div class="species-title">8. Parasitismo</div>
+            <p class="species-desc">
+              Algunos hongos dañan a los anfibios al vivir en su piel. El
+              parásito se beneficia, el huésped no.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div
+            class="species-img"
+            aria-label="Foto sugerida: cadena trófica dibujada con flechas"
+          >
+            🔁
+          </div>
+          <div class="species-info">
+            <div class="species-title">9. Cadena trófica</div>
+            <p class="species-desc">
+              Todos los seres vivos están conectados por lo que comen y lo que
+              son comidos. Es el gran ciclo de la vida.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <div style="text-align: center; margin-top: 1rem; margin-bottom: 2rem">
+        <a href="index.html">
+          <button type="button">Volver</button>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>

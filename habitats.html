@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hábitats | Biodiversidad Enova</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --bg: #f6f8fa;
+        --primary: #22223b;
+        --accent: #4ea8de;
+        --card: #fff;
+        --radius: 16px;
+      }
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        font-family: "Inter", Arial, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5em;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      .species-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .species-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+        overflow: hidden;
+        padding: 1rem;
+      }
+      .species-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        background: #f0f0f0;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+      }
+      .species-info {
+        flex: 1;
+      }
+      .species-title {
+        margin: 0 0 0.3em 0;
+        font-size: 1.1em;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      .species-desc {
+        margin: 0;
+        color: #444;
+        font-size: 0.98em;
+      }
+      button {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.75em 1.5em;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1em;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #277da1;
+      }
+      @media (max-width: 600px) {
+        .species-card {
+          flex-direction: column;
+          align-items: stretch;
+          padding: 0.8rem;
+        }
+        .species-img {
+          width: 100%;
+          height: 140px;
+          margin-bottom: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 style="text-align: center; margin-top: 1.5rem">
+        🏞️ Hábitats de nuestra biodiversidad
+      </h1>
+      <section class="species-list">
+        <article class="species-card">
+          <div class="species-img" aria-label="Foto sugerida: selva densa">
+            🌳
+          </div>
+          <div class="species-info">
+            <div class="species-title">1. Selva Misionera</div>
+            <p class="species-desc">
+              Bosque húmedo con gran variedad de plantas y animales. Vive el yaguareté.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div class="species-img" aria-label="Foto sugerida: laguna con vegetación">
+            💧
+          </div>
+          <div class="species-info">
+            <div class="species-title">2. Humedales del Litoral</div>
+            <p class="species-desc">
+              Ecosistemas con agua y vegetación. Hogar del carpincho y muchas aves.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div class="species-img" aria-label="Foto sugerida: pastizales">
+            🌾
+          </div>
+          <div class="species-info">
+            <div class="species-title">3. Pastizales Pampeanos</div>
+            <p class="species-desc">
+              Campos abiertos donde corren los ñandúes y crecen muchas flores nativas.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div class="species-img" aria-label="Foto sugerida: monte seco">
+            🌵
+          </div>
+          <div class="species-info">
+            <div class="species-title">4. Monte Chaqueño</div>
+            <p class="species-desc">
+              Bosque seco con árboles bajos. Viven osos hormigueros y pumas.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div class="species-img" aria-label="Foto sugerida: palmares">
+            🌴
+          </div>
+          <div class="species-info">
+            <div class="species-title">5. Parque Nacional El Palmar</div>
+            <p class="species-desc">
+              Palmares únicos en Entre Ríos. Protege zorros, aves y vegetación autóctona.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div class="species-img" aria-label="Foto sugerida: islas y ríos">
+            🏝️
+          </div>
+          <div class="species-info">
+            <div class="species-title">6. Delta del Paraná</div>
+            <p class="species-desc">
+              Ríos e islas entrelazados. Lugar clave para peces y aves acuáticas.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div class="species-img" aria-label="Foto sugerida: monte ribereño">
+            🌿
+          </div>
+          <div class="species-info">
+            <div class="species-title">7. Reserva Natural Las Piedras</div>
+            <p class="species-desc">
+              Área protegida de Gualeguaychú. Monte, arroyos y mucha biodiversidad.
+            </p>
+          </div>
+        </article>
+
+        <article class="species-card">
+          <div class="species-img" aria-label="Foto sugerida: costa atlántica">
+            🌊
+          </div>
+          <div class="species-info">
+            <div class="species-title">8. Costa Atlántica</div>
+            <p class="species-desc">
+              Playas, dunas y mar. Viven lobos marinos, peces y gaviotas.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <div style="text-align: center; margin-top: 1rem; margin-bottom: 2rem;">
+        <a href="index.html">
+          <button type="button">Volver</button>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>

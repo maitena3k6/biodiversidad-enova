@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Biodiversidad Enova 🌱</title>
+    <!-- Framer Motion Dev CDN -->
+    <style>
+      :root {
+        --bg: #f6f8fa;
+        --primary: #22223b;
+        --accent: #4ea8de;
+        --card: #fff;
+        --radius: 16px;
+      }
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        font-family: "Inter", Arial, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5em;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5em;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        gap: 0.25em;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        max-width: 600px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .anchor-button {
+        text-decoration: none;
+        color: var(--accent);
+        font-weight: 500;
+        font-size: 2rem;
+        padding: 0.25rem 1rem;
+        border-radius: 8px;
+        background-color: #f6f8fa;
+        box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
+        transition: background-color 0.2s, box-shadow 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: 0 2px 16px rgba(34, 34, 59, 0.07);
+        padding: 2em 2.5em;
+        margin: 1em 0;
+        min-width: 300px;
+        text-align: center;
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: 0 4px 32px rgba(34, 34, 59, 0.13);
+      }
+      .emoji {
+        display: block;
+      }
+      button {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.75em 1.5em;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1em;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #277da1;
+      }
+      hr {
+        border: none;
+        border-top: 2px solid #e0e4ea;
+        margin: 2em 0;
+        width: 80%;
+        border-radius: 2px;
+      }
+
+      .biodiversidad-list {
+        list-style: none;
+        padding: 0;
+        margin: 2em auto 1em auto;
+        max-width: calc(100vw - 2em);
+        font-size: 1.15rem;
+        text-align: left;
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: 0 1px 8px rgba(34, 34, 59, 0.05);
+      }
+      .biodiversidad-list li {
+        padding: 1em 1.5em;
+        border-bottom: 1px solid #f1f1f1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5em;
+      }
+      .biodiversidad-list li button {
+        margin: 0;
+        padding: 0.5em 0.75em;
+        background-color: transparent;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+      }
+      .biodiversidad-list li:last-child {
+        border-bottom: none;
+      }
+      .biodiversidad-list strong {
+        color: var(--primary);
+      }
+      .celebracion-section {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: 0 2px 16px rgba(34, 34, 59, 0.07);
+        padding: 1.5em;
+        margin: 2em 0 1em 0;
+        min-width: 300px;
+        max-width: 600px;
+      }
+      .celebracion-section h2 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        justify-content: center;
+      }
+      .celebracion-section p {
+        margin: 0.5em 0 1em 0;
+        text-align: center;
+      }
+      .celebracion-list {
+        list-style: disc inside;
+        text-align: left;
+        margin: 1em auto;
+        padding: 1em;
+        font-size: 1.2rem;
+        color: var(--primary);
+        max-width: 400px;
+        background: #f6f8fa;
+        border-radius: 8px;
+        box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
+      }
+      .celebracion-list li {
+        margin-bottom: 0.75em;
+        padding: 0.25em;
+      }
+      .celebracion-list li:last-child {
+        margin-bottom: 0;
+      }
+      .argentina-section {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: 0 2px 16px rgba(34, 34, 59, 0.07);
+        padding: 1.5em;
+        margin: 2em 0 1em 0;
+        min-width: 300px;
+        max-width: 600px;
+      }
+      .argentina-section h2 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        justify-content: center;
+      }
+      .argentina-section p {
+        margin: 0.5em 0 1em 0;
+        text-align: center;
+      }
+      .argentina-list {
+        list-style: disc inside;
+        text-align: left;
+        margin: 1em auto;
+        padding: 1em;
+        font-size: 1.15rem;
+        color: var(--primary);
+        max-width: 400px;
+        background: #f6f8fa;
+        border-radius: 8px;
+        box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
+      }
+      .argentina-list li {
+        margin-bottom: 0.75em;
+        padding: 0.25em;
+      }
+      .argentina-list li:last-child {
+        margin-bottom: 0;
+      }
+      .argentina-list strong {
+        color: var(--primary);
+      }
+      .entrerios-section {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: 0 2px 16px rgba(34, 34, 59, 0.07);
+        padding: 1.5em;
+        margin: 2em 0 1em 0;
+        min-width: 300px;
+        max-width: 600px;
+      }
+      .entrerios-section h2 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        justify-content: center;
+      }
+      .entrerios-section p {
+        margin: 0.5em 0 1em 0;
+        text-align: center;
+      }
+      .entrerios-list {
+        list-style: disc inside;
+        text-align: left;
+        margin: 1em auto;
+        padding: 1em;
+        font-size: 1.15rem;
+        color: var(--primary);
+        max-width: 400px;
+        background: #f6f8fa;
+        border-radius: 8px;
+        box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
+      }
+      .entrerios-list li {
+        margin-bottom: 0.75em;
+        padding: 0.25em;
+      }
+      .entrerios-list li:last-child {
+        margin-bottom: 0;
+      }
+      .entrerios-list strong {
+        color: var(--primary);
+      }
+      .sabiasque-section {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: 0 2px 16px rgba(34, 34, 59, 0.07);
+        padding: 1.5em;
+        margin: 2em 0 1em 0;
+        min-width: 300px;
+        max-width: 600px;
+        text-align: center;
+      }
+      .sabiasque-section h2 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        justify-content: center;
+      }
+      .sabiasque-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5em auto 0 auto;
+        max-width: 500px;
+        font-size: 1.15rem;
+        text-align: left;
+      }
+      .sabiasque-list li {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        background: #f6f8fa;
+        border-radius: 10px;
+        box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
+        margin-bottom: 1em;
+        padding: 1em 1.2em;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+      }
+      .sabiasque-list li:last-child {
+        margin-bottom: 0;
+      }
+      .sabiasque-icon {
+        font-size: 2em;
+        transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        display: inline-block;
+        will-change: transform;
+        filter: drop-shadow(0 2px 4px rgba(34, 34, 59, 0.1));
+      }
+      .sabiasque-list li:hover .sabiasque-icon,
+      .sabiasque-list li:focus .sabiasque-icon {
+        transform: scale(1.25) rotate(-10deg);
+      }
+
+      .acciones-section {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: 0 2px 16px rgba(34, 34, 59, 0.07);
+        padding: 1.5em;
+        margin: 2em 0 1em 0;
+        min-width: 300px;
+        max-width: 600px;
+        text-align: center;
+      }
+      .acciones-section h2 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        justify-content: center;
+      }
+      .acciones-list {
+        list-style: disc inside;
+        text-align: left;
+        margin: 1.5em auto 1em auto;
+        padding: 1em;
+        font-size: 1.15rem;
+        color: var(--primary);
+        max-width: 400px;
+        background: #f6f8fa;
+        border-radius: 8px;
+        box-shadow: 0 1px 8px rgba(34, 34, 59, 0.03);
+      }
+      .acciones-list li {
+        margin-bottom: 0.75em;
+        padding: 0.25em;
+      }
+      .acciones-list li:last-child {
+        margin-bottom: 0;
+      }
+      .acciones-impacto {
+        margin-top: 1.5em;
+        font-size: 1.15rem;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <span class="emoji">🌱</span>Día Internacional de la Diversidad Biológica
+    </h1>
+
+    <div class="card" id="motion-card">
+      <span style="font-size: 2em">🦋</span>
+      <blockquote
+        style="
+          font-style: italic;
+          color: #999;
+          border-left: 4px solid #f1f1f1;
+          margin: 1.5em 0;
+          padding-left: 0.5em;
+          font-size: 22px;
+        "
+      >
+        “Celebremos la vida en todas sus formas. Protejamos lo que nos hace
+        únicos.”
+      </blockquote>
+    </div>
+
+    <h2><span class="emoji">🐾</span>¿Qué es la biodiversidad?</h2>
+    <p>
+      La biodiversidad es toda la variedad de seres vivos que habitan nuestro
+      planeta: animales, plantas, hongos, bacterias… ¡y también los ecosistemas
+      donde viven!
+    </p>
+
+    <ul class="biodiversidad-list">
+      <li>
+        <div>
+          <strong style="color: var(--accent)">Las especies:</strong> como el
+          <span style="color: #22335f; font-style: italic; font-weight: 500"
+            >yaguareté</span
+          >
+          o el
+          <span style="color: #22335f; font-style: italic; font-weight: 500"
+            >carpincho</span
+          >
+        </div>
+        <a class="anchor-button" href="/especies.html">&#8250;</a>
+      </li>
+      <li>
+        <div>
+          <strong style="color: var(--accent)">Sus hábitats:</strong> como los
+          <span style="color: #22335f; font-style: italic; font-weight: 500"
+            >humedales</span
+          >
+          o los
+          <span style="color: #22335f; font-style: italic; font-weight: 500"
+            >bosques</span
+          >
+        </div>
+        <a class="anchor-button" href="/habitats.html">&#8250;</a>
+      </li>
+      <li>
+        <div>
+          <strong style="color: var(--accent)"
+            >Las relaciones entre ellos:</strong
+          >
+          como cuando una
+          <span style="color: #22335f; font-style: italic; font-weight: 500"
+            >abeja</span
+          >
+          poliniza una
+          <span style="color: #22335f; font-style: italic; font-weight: 500"
+            >flor</span
+          >
+        </div>
+        <a class="anchor-button" href="/relaciones.html">&#8250;</a>
+      </li>
+    </ul>
+
+    <hr />
+    <section class="celebracion-section">
+      <h2><span class="emoji">📅</span>¿Por qué se celebra este día?</h2>
+      <p>
+        El 22 de mayo fue elegido por las Naciones Unidas para recordar la
+        importancia de cuidar la biodiversidad, que está en peligro por:
+      </p>
+      <ul class="celebracion-list">
+        <li>La contaminación</li>
+        <li>La deforestación</li>
+        <li>El uso de agrotóxicos</li>
+        <li>El cambio climático</li>
+      </ul>
+      <p>
+        Este día nos invita a reflexionar y actuar para proteger la red de vida
+        que sostiene el planeta.
+      </p>
+    </section>
+
+    <hr />
+
+    <section class="argentina-section">
+      <h2><span class="emoji">🇦🇷</span>Argentina: un país biodiverso</h2>
+      <p>
+        Nuestro país es uno de los más biodiversos del mundo. Tiene muchos
+        paisajes diferentes y especies únicas:
+      </p>
+      <ul class="argentina-list">
+        <li>
+          <strong>Selva Misionera:</strong> hogar del
+          <span style="color: #22335f">yaguareté</span>
+        </li>
+        <li>
+          <strong>Humedales del Litoral:</strong> con
+          <span style="color: #22335f">carpinchos</span>, aves y peces
+        </li>
+        <li>
+          <strong>Bosques Andinos:</strong> con
+          <span style="color: #22335f">cóndores</span> y
+          <span style="color: #22335f">alerces milenarios</span>
+        </li>
+        <li>
+          <strong>Pastizales Pampeanos:</strong> donde vive el
+          <span style="color: #22335f">venado de las pampas</span>
+        </li>
+      </ul>
+      <p>Cada región tiene especies y culturas que debemos cuidar.</p>
+    </section>
+
+    <hr />
+
+    <section class="entrerios-section">
+      <h2>
+        <span class="emoji">💧</span>Entre Ríos y Gualeguaychú: tierra de agua y
+        vida
+      </h2>
+      <p>
+        En nuestra provincia, el agua y la biodiversidad van de la mano. El río
+        Gualeguaychú y sus alrededores son hogar de una rica variedad de
+        especies.
+      </p>
+      <h3
+        style="
+          margin-top: 1.5em;
+          font-size: 1.15rem;
+          color: var(--accent);
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+        "
+      >
+        <span class="emoji">🌿</span>Reservas naturales del departamento:
+      </h3>
+      <ul class="entrerios-list">
+        <li>
+          <strong>Parque Florístico:</strong> lleno de flora nativa como el
+          espinillo y el ceibo
+        </li>
+        <li>
+          <strong>Reserva Las Piedras:</strong> protege fauna local como zorros
+          y aves acuáticas
+        </li>
+        <li>
+          <strong>Reserva El Potrero:</strong> humedal clave para la región
+        </li>
+      </ul>
+      <h3
+        style="
+          margin-top: 1.5em;
+          font-size: 1.15rem;
+          color: var(--accent);
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+        "
+      >
+        <span class="emoji">🦜</span>Especies destacadas:
+      </h3>
+      <ul class="entrerios-list">
+        <li>Carpincho</li>
+        <li>Martín pescador</li>
+        <li>Ñandú</li>
+        <li>Tararira</li>
+        <li>Sauce criollo</li>
+      </ul>
+      <h3
+        style="
+          margin-top: 1.5em;
+          font-size: 1.15rem;
+          color: var(--accent);
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+        "
+      >
+        Pero también enfrentamos amenazas:
+      </h3>
+      <ul class="entrerios-list">
+        <li>Pérdida de hábitats</li>
+        <li>Uso excesivo de agroquímicos</li>
+        <li>Quema de pastizales</li>
+      </ul>
+      <p style="margin-top: 1.5em">
+        <span class="emoji">🌱</span>
+        Cuidar la biodiversidad de Entre Ríos es también cuidar nuestra
+        identidad y futuro.
+      </p>
+    </section>
+
+    <hr />
+
+    <section class="sabiasque-section">
+      <h2><span class="emoji">❓</span>¿Sabías que…?</h2>
+      <ul class="sabiasque-list">
+        <li>
+          <span class="sabiasque-icon" data-emoji="💧"></span>
+          El 70% del territorio de Entre Ríos tiene humedales.
+        </li>
+        <li>
+          <span class="sabiasque-icon" data-emoji="🌳"></span>
+          Los árboles nativos ayudan a limpiar el aire y el agua.
+        </li>
+        <li>
+          <span class="sabiasque-icon" data-emoji="🌺"></span>
+          El ceibo es la flor nacional, ¡y crece en nuestra región!
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <section class="acciones-section">
+      <h2><span class="emoji">📢</span>¿Qué podemos hacer?</h2>
+      <ul class="acciones-list">
+        <li>Plantar árboles nativos</li>
+        <li>No tirar basura en la naturaleza</li>
+        <li>Respetar a los animales</li>
+        <li>Informarnos y compartir</li>
+        <li>Hacer ciencia ciudadana (¡como observar aves!)</li>
+      </ul>
+      <p class="acciones-impacto">
+        <span class="emoji">🎯</span>
+        Pequeñas acciones pueden tener un gran impacto.
+      </p>
+    </section>
+
+    <hr />
+
+    <footer
+      style="
+        margin: 2em 0 1em 0;
+        text-align: center;
+        color: #888;
+        font-size: 1rem;
+      "
+    >
+      <div>
+        <span id="footer-date"></span> &middot; Enova <br />
+        Hecho por: 1er año PEP &middot; Ciencias Naturales
+      </div>
+      <button id="share-btn" style="margin-top: 1em">
+        Compartir este sitio
+      </button>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+
+    <script>
+      // Set current date in footer
+      document.getElementById("footer-date").textContent =
+        new Date().toLocaleDateString("es-AR", {
+          year: "numeric",
+        });
+
+      // Share button logic
+      // Esperamos que el DOM esté completamente cargado
+      document.addEventListener("DOMContentLoaded", function () {
+        const shareBtn = document.getElementById("share-btn");
+
+        shareBtn.addEventListener("click", async function () {
+          const shareData = {
+            title: document.title,
+            text: "¡Mirá este sitio sobre biodiversidad!",
+            url: window.location.href,
+          };
+
+          // Intenta usar la API de compartir si está disponible
+          if (
+            navigator.share &&
+            /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
+          ) {
+            try {
+              await navigator.share(shareData);
+            } catch (e) {
+              // Si la persona cancela el panel de compartir, no hacemos nada
+            }
+          } else {
+            // Si estamos en desktop o no hay API de compartir, copiamos al portapapeles
+            try {
+              await navigator.clipboard.writeText(window.location.href);
+              shareBtn.textContent = "¡Enlace copiado!";
+              setTimeout(() => {
+                shareBtn.textContent = "Compartir este sitio";
+              }, 2000);
+            } catch (e) {
+              alert("No se pudo copiar el enlace. ¿Tu navegador lo permite?");
+            }
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.querySelectorAll(".sabiasque-icon").forEach(function (icon) {
+        icon.textContent = icon.dataset.emoji;
+        icon.parentElement.addEventListener("mouseenter", function () {
+          icon.animate(
+            [
+              { transform: "scale(1) rotate(0deg)" },
+              { transform: "scale(1.25) rotate(-10deg)" },
+              { transform: "scale(1) rotate(0deg)" },
+            ],
+            { duration: 500, easing: "cubic-bezier(.68,-0.55,.27,1.55)" }
+          );
+        });
+        icon.parentElement.addEventListener("focus", function () {
+          icon.animate(
+            [
+              { transform: "scale(1) rotate(0deg)" },
+              { transform: "scale(1.25) rotate(-10deg)" },
+              { transform: "scale(1) rotate(0deg)" },
+            ],
+            { duration: 500, easing: "cubic-bezier(.68,-0.55,.27,1.55)" }
+          );
+        });
+      });
+    </script>
+    <script>
+      const { animate, scroll } = Motion;
+
+      animate(
+        "body",
+        {
+          opacity: [0, 1],
+        },
+        { ease: "linear", duration: 1, delay: 0.5 }
+      );
+
+      //   const animation = animate(
+      //     card,
+      //     { transform: ["none", "scale(1.1)"] },
+      //     { ease: "linear" }
+      //   );
+
+      //   scroll(animation);
+    </script>
+  </body>
+</html>
