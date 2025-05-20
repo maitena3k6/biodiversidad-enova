@@ -78,7 +78,6 @@
         flex-direction: column;
         align-items: center;
         padding: 1em;
-        opacity: 0;
       }
       div,
       section,
@@ -86,6 +85,10 @@
       ul {
         box-sizing: border-box;
         width: 100%;
+      }
+      [data-init],
+      [data-section] {
+        opacity: 0;
       }
       h1 {
         font-size: 2rem;
@@ -174,20 +177,27 @@
         border-radius: var(--radius);
         box-shadow: 0 1px 8px rgba(34, 34, 59, 0.05);
       }
-      .biodiversidad-list li {
-        padding: 1em 1.5em;
+      .biodiversidad-list li a {
+        padding: 1em 0.5em 1em 1.25em;
         border-bottom: 1px solid #f1f1f1;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 0.5em;
+        gap: 0.75em;
+        text-decoration: none;
+        color: var(--primary);
       }
-      .biodiversidad-list li button {
+      .biodiversidad-list li .anchor-button {
         margin: 0;
-        padding: 0.5em 0.75em;
+        padding: 0;
         background-color: transparent;
-        border: 1px solid var(--accent);
         color: var(--accent);
+        max-width: 40px;
+        box-sizing: border-box;
+      }
+      .biodiversidad-list li svg {
+        width: 32px;
+        height: 32px;
       }
       .biodiversidad-list li:last-child {
         border-bottom: none;
@@ -369,11 +379,12 @@
         margin-bottom: 0;
       }
       .sabiasque-icon {
-        font-size: 2em;
-        transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         display: inline-block;
-        will-change: transform;
-        filter: drop-shadow(0 2px 4px rgba(34, 34, 59, 0.1));
+        font-size: 2em;
+        /* transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55); */
+        /* display: inline-block; */
+        /* will-change: transform; */
+        /* filter: drop-shadow(0 2px 4px rgba(34, 34, 59, 0.1)); */
       }
       .sabiasque-list li:hover .sabiasque-icon,
       .sabiasque-list li:focus .sabiasque-icon {
@@ -430,7 +441,7 @@
     </style>
   </head>
   <body>
-    <h1>
+    <h1 data-init>
       <span class="emoji">🌱</span>
       <span style="display: flex; flex-direction: column">
         <small style="font-size: 0.5em; opacity: 0.5">22 de Mayo</small>
@@ -438,8 +449,16 @@
       </span>
     </h1>
 
-    <div class="card" id="motion-card" style="padding: 1rem !important">
-      <span style="font-size: 2em">🦋</span>
+    <div
+      data-init
+      class="card"
+      id="motion-card"
+      style="padding: 1rem !important; position: relative"
+    >
+      <span class="sabiasque-icon" style="font-size: 2em; display: inline-block"
+        >🦋</span
+      >
+
       <blockquote
         style="
           font-style: italic;
@@ -447,6 +466,7 @@
           margin: 1rem 0;
           padding-left: 0.5em;
           font-size: 24px;
+          font-weight: 500;
         "
       >
         “Celebremos la vida en todas sus formas. Protejamos lo que nos hace
@@ -454,8 +474,10 @@
       </blockquote>
     </div>
 
-    <h2 style="font-size: 1.5rem;"><span class="emoji">🐾</span>¿Qué es la biodiversidad?</h2>
-    <div>
+    <h2 data-init style="font-size: 1.5rem">
+      <span class="emoji">🐾</span>¿Qué es la biodiversidad?
+    </h2>
+    <div data-init>
       <p>
         La biodiversidad es toda la variedad de seres vivos que habitan nuestro
         planeta: animales, plantas, hongos, bacterias… ¡y también los
@@ -463,53 +485,98 @@
       </p>
     </div>
 
-    <ul class="biodiversidad-list">
+    <ul data-init class="biodiversidad-list">
       <li>
-        <div>
-          <strong style="color: var(--accent)">Las especies:</strong> como el
-          <span style="color: #22335f; font-style: italic; font-weight: 500"
-            >yaguareté</span
-          >
-          o el
-          <span style="color: #22335f; font-style: italic; font-weight: 500"
-            >carpincho</span
-          >
-        </div>
-        <a class="anchor-button" href="especies.html">&#8250;</a>
+        <a class="transparent-link" href="especies.html">
+          <div>
+            <strong style="color: var(--accent)">Las especies:</strong> como el
+            <span style="color: #22335f; font-style: italic; font-weight: 500"
+              >yaguareté</span
+            >
+            o el
+            <span style="color: #22335f; font-style: italic; font-weight: 500"
+              >carpincho</span
+            >
+          </div>
+          <div class="anchor-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+              ></path>
+            </svg>
+          </div>
+        </a>
       </li>
       <li>
-        <div>
-          <strong style="color: var(--accent)">Sus hábitats:</strong> como los
-          <span style="color: #22335f; font-style: italic; font-weight: 500"
-            >humedales</span
-          >
-          o los
-          <span style="color: #22335f; font-style: italic; font-weight: 500"
-            >bosques</span
-          >
-        </div>
-        <a class="anchor-button" href="habitats.html">&#8250;</a>
+        <a class="transparent-link" href="habitats.html">
+          <div>
+            <strong style="color: var(--accent)">Sus hábitats:</strong> como los
+            <span style="color: #22335f; font-style: italic; font-weight: 500"
+              >humedales</span
+            >
+            o los
+            <span style="color: #22335f; font-style: italic; font-weight: 500"
+              >bosques</span
+            >
+          </div>
+          <div class="anchor-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+              ></path>
+            </svg>
+          </div>
+        </a>
       </li>
       <li>
-        <div>
-          <strong style="color: var(--accent)"
-            >Las relaciones entre ellos:</strong
-          >
-          como cuando una
-          <span style="color: #22335f; font-style: italic; font-weight: 500"
-            >abeja</span
-          >
-          poliniza una
-          <span style="color: #22335f; font-style: italic; font-weight: 500"
-            >flor</span
-          >
-        </div>
-        <a class="anchor-button" href="relaciones.html">&#8250;</a>
+        <a class="transparent-link" href="relaciones.html">
+          <div>
+            <strong style="color: var(--accent)"
+              >Las relaciones entre ellos:</strong
+            >
+            como cuando una
+            <span style="color: #22335f; font-style: italic; font-weight: 500"
+              >abeja</span
+            >
+            poliniza una
+            <span style="color: #22335f; font-style: italic; font-weight: 500"
+              >flor</span
+            >
+          </div>
+          <div class="anchor-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+              ></path>
+            </svg>
+          </div>
+        </a>
       </li>
     </ul>
 
     <hr />
-    <section class="celebracion-section">
+    <section data-section class="celebracion-section">
       <h2><span class="emoji">📅</span>¿Por qué se celebra este día?</h2>
       <p>
         El 22 de mayo fue elegido por las Naciones Unidas para recordar la
@@ -529,7 +596,7 @@
 
     <hr />
 
-    <section class="argentina-section">
+    <section data-section class="argentina-section">
       <h2><span class="emoji">🇦🇷</span>Argentina: un país biodiverso</h2>
       <p>
         Nuestro país es uno de los más biodiversos del mundo. Tiene muchos
@@ -559,10 +626,10 @@
 
     <hr />
 
-    <section class="entrerios-section">
+    <section data-section class="entrerios-section">
       <h2>
-        <span class="emoji">💧</span>Entre Ríos y el Dto. Gualeguaychú: tierra de agua y
-        vida
+        <span class="emoji">💧</span>Entre Ríos y el Dto. Gualeguaychú: tierra
+        de agua y vida
       </h2>
       <p>
         En nuestra provincia, el agua y la biodiversidad van de la mano. El río
@@ -639,7 +706,7 @@
 
     <hr />
 
-    <section class="sabiasque-section">
+    <section data-section class="sabiasque-section">
       <h2><span class="emoji">❓</span>¿Sabías que…?</h2>
       <ul class="sabiasque-list">
         <li>
@@ -659,7 +726,7 @@
 
     <hr />
 
-    <section class="acciones-section">
+    <section data-section class="acciones-section">
       <h2><span class="emoji">📢</span>¿Qué podemos hacer?</h2>
       <ul class="acciones-list">
         <li>Plantar árboles nativos</li>
@@ -694,7 +761,9 @@
       </button>
     </footer>
     <!-- Toast -->
-    <div style="position: fixed; top: 1em; padding: 1rem">
+    <div
+      style="position: fixed; top: 1em; padding: 1rem; display: flex; justify-content: center; align-items: center;"
+    >
       <div
         id="toast"
         style="
@@ -706,6 +775,7 @@
           opacity: 0;
           pointer-events: none;
           font-weight: 500;
+          max-width: 280px;
         "
       >
         🔔 Enlace copiado al portapapeles
@@ -771,6 +841,59 @@
       });
     </script>
 
-    <script src="js/fadein.js"></script>
+    <script type="module">
+      const { animate, inView, stagger } = Motion;
+
+      const sections = document.querySelectorAll("[data-init]");
+
+      animate(
+        sections,
+        { y: [300, 0], opacity: [0, 1] },
+        {
+          delay: stagger(0.1),
+          duration: 0.5,
+          offset: ["0px", "80%"],
+        }
+      );
+
+      const sabiasqueIcons = document.querySelectorAll(".sabiasque-icon");
+
+      inView(".sabiasque-icon", () => {
+        animate(
+          sabiasqueIcons,
+          { y: [0, -10, 0], rotate: [0, 5, -5, 0], scale: [1, 1.5, 1] },
+          {
+            duration: 1.25,
+            easing: "ease-in-out",
+            delay: stagger(0.25),
+          }
+        );
+
+        return () => {
+          animate(
+            sabiasqueIcons,
+            { y: 0, rotate: 0, scale: 1 },
+            {
+              duration: 0.5,
+              easing: "ease-out",
+              delay: stagger(0.05, { direction: "reverse" }),
+            }
+          );
+        };
+      });
+
+      inView("[data-section]", (element) => {
+        animate(
+          element,
+          { y: [300, 0], opacity: [0, 1] },
+          {
+            duration: 0.5,
+            offset: ["0px", "80%"],
+          }
+        );
+      });
+    </script>
+
+    <!-- <script src="js/fadein.js"></script> -->
   </body>
 </html>

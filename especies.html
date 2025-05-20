@@ -73,7 +73,6 @@
         flex-direction: column;
         align-items: center;
         padding: 1em;
-        opacity: 0;
       }
       h1 {
         font-size: 2rem;
@@ -83,6 +82,7 @@
         justify-content: center;
         align-items: center;
         gap: 0.5em;
+        opacity: 0;
       }
       h2 {
         font-size: 1.5rem;
@@ -117,10 +117,11 @@
         gap: 1rem;
         overflow: hidden;
         padding: 1rem;
+        opacity: 0;
       }
       .species-img {
-        width: 80px;
-        height: 80px;
+        width: 180px;
+        height: 90px;
         object-fit: cover;
         border-radius: 8px;
         background: #f0f0f0;
@@ -272,14 +273,14 @@
         </article>
       </section>
 
-      <div style="text-align: center; margin-top: 1rem; margin-bottom: 2rem">
-        <a href="index.html">
+      <div  style="text-align: center; margin-top: 1rem; margin-bottom: 2rem">
+        <a href="index.html" class="back-btn">
           <button type="button">Volver</button>
         </a>
       </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
-    <script src="js/fadein.js"></script>
+    <script src="js/anim.js"></script>
   </body>
 </html>
